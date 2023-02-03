@@ -1,0 +1,41 @@
+#PROBLEMA 01
+
+# Matheus Silva de Sousa
+# Joao Pedro Dutra
+
+while True:
+    n = input()
+    
+    if n == "%":
+        break
+    
+    sequence = list(map(int, input().split()))
+    i = 0
+    j = 0
+    k = 1
+    m = True
+    switch = True if sequence[0] % 2 == 0 else False
+    
+    while j < int(n):
+        i, j = j, j+k
+        
+        if len(sequence[i:j]) < k-1:
+            m = False
+            break
+        
+        if switch:
+            for l in sequence[i:j]:
+                if l % 2 != 0:
+                    m = False
+                    break
+            switch = False
+        else:
+            for l in sequence[i:j]:
+                if l % 2 == 0:
+                    m = False
+                    break
+            switch = True
+        k += 1
+    
+    print(k-1 if m else "NAO")
+    print("%")
