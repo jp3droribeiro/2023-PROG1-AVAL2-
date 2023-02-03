@@ -1,0 +1,36 @@
+#PROBLEMA 03
+
+# Matheus Silva de Sousa
+# Joao Pedro Dutra 
+
+
+
+TABLE = {
+    "o": ("presente", "1"), "ei": ("pretérito", "1"), "ai": ("futuro", "1"),
+    "os": ("presente", "2"), "es": ("pretérito", "2"), "ais": ("futuro", "2"),
+    "a": ("presente", "3"), "e": ("pretérito", "3"), "i": ("futuro", "3"),
+    "om": ("presente", "4"), "em": ("pretérito", "4"), "aem": ("futuro", "4"),
+    "ons": ("presente", "5"), "est": ("pretérito", "5"), "aist": ("futuro", "5"),
+    "am": ("presente", "6"), "im": ("pretérito", "6"), "aim": ("futuro", "6")
+}
+
+while True:
+    try:
+        word = input()
+        i = -3
+        tense = ""
+
+        while i <= -1:
+            if word[i:] in TABLE:
+                tense, person = TABLE[word[i:]]
+                verb = word[:i] + "en"
+                break
+            i += 1
+
+        if tense:
+            print("%s - verbo %s, %s, %sa pessoa" %(word, verb, tense, person))
+        else:
+            print("%s - não é um tempo verbal" %(word))
+
+    except EOFError:
+        break
